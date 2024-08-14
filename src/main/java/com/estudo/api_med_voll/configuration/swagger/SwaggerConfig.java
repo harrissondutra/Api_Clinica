@@ -15,9 +15,9 @@ public class SwaggerConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("API Zap")
+                        .title("API Clínica Médica Voll")
                         .version("v1")
-                        .description("Documentação da API Zap")
+                        .description("Documentação da API Clínica Médica")
                         .termsOfService("http://swagger.io/terms/")
                         .license(new License().name("Apache 2.0").url("http://springdoc.org")));
     }
