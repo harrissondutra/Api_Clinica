@@ -20,7 +20,7 @@ public class DoctorService {
         } catch (Exception e) {
             throw new RuntimeException("Erro ao salvar médico" + e.getCause());
         }
-        repository.save(doctor);
+//        repository.save(doctor);
     }
 
     public List<Doctor> getAll() {
