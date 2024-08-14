@@ -5,6 +5,8 @@ import com.estudo.api_med_voll.repository.DoctorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DoctorService {
 
@@ -14,5 +16,9 @@ public class DoctorService {
 
     public void saveDoctor(Doctor doctor) {
         repository.save(doctor);
+    }
+
+    public List<Doctor> getAll() {
+        return repository.findAll();
     }
 }
