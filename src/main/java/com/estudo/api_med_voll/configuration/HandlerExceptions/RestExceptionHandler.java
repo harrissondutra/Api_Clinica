@@ -29,7 +29,6 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     private ErrorResponse getErrorResponse(MethodArgumentNotValidException ex, HttpStatus status, List<ErrorObject> errors) {
-        return new ErrorResponse("Requisição possui campos inválidos", status.value(),
-                status.getReasonPhrase(), ex.getBindingResult().getObjectName(), errors);
+        return new ErrorResponse("Requisição possui campos inválidos", status.value(), errors);
     }
 }
