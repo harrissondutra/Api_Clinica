@@ -9,7 +9,7 @@ public record AddressDto(
         @NotBlank
         String neighborhood,
         @NotBlank
-        @Pattern(regexp = "\\d{8}")
+        @Pattern(regexp = "\\d{8}", message = "{cep.not.correct.size}")
         String cep,
         @NotBlank
         String city,
