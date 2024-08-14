@@ -13,7 +13,7 @@ public record AddressDto(
         String cep,
         @NotBlank
         String city,
-        @NotBlank
+        @NotBlank(message = "{uf.not.blank}")
         String uf,
 
         String number,
