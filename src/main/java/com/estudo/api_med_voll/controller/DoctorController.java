@@ -24,7 +24,7 @@ public class DoctorController {
         service.saveDoctor(new Doctor(doctorDto));
     }
 
-    @RequestMapping
+    @GetMapping
     public ResponseEntity<List<Doctor>> getAll(){
         return ResponseEntity.ok(service.getAll());
     }
