@@ -1,6 +1,8 @@
+com\estudo\api_med_voll\configuration\HandlerExceptions\ErrorObject.class
 com\estudo\api_med_voll\MedVollApplication.class
 com\estudo\api_med_voll\enumerated\Specialty.class
 com\estudo\api_med_voll\record\DoctorDto.class
+com\estudo\api_med_voll\configuration\HandlerExceptions\ErrorResponse.class
 com\estudo\api_med_voll\configuration\swagger\SwaggerConfig.class
 com\estudo\api_med_voll\controller\DoctorController.class
 com\estudo\api_med_voll\repository\DoctorRepository.class
@@ -8,4 +10,5 @@ com\estudo\api_med_voll\model\Address.class
 com\estudo\api_med_voll\record\AddressDto.class
 com\estudo\api_med_voll\service\DoctorService.class
 com\estudo\api_med_voll\configuration\CorsConfiguration.class
+com\estudo\api_med_voll\configuration\HandlerExceptions\RestExceptionHandler.class
 com\estudo\api_med_voll\model\Doctor.class
