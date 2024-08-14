@@ -1,6 +1,7 @@
 com\estudo\api_med_voll\MedVollApplication.class
 com\estudo\api_med_voll\enumerated\Specialty.class
 com\estudo\api_med_voll\record\DoctorDto.class
+com\estudo\api_med_voll\configuration\swagger\SwaggerConfig.class
 com\estudo\api_med_voll\controller\DoctorController.class
 com\estudo\api_med_voll\repository\DoctorRepository.class
 com\estudo\api_med_voll\model\Address.class
