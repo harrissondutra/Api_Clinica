@@ -26,4 +26,8 @@ public class DoctorService {
     public List<Doctor> getAll() {
         return repository.findAll();
     }
+
+    public Doctor getById(Long id) {
+        return repository.findById(id).orElseThrow(() -> new RuntimeException("Médico não encontrado"));
+    }
 }
