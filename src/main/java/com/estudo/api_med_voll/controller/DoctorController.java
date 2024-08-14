@@ -21,9 +21,6 @@ public class DoctorController {
     @PostMapping("/createDoctor")
     @Transactional
     public void createDoctor(@RequestBody @Valid DoctorDto doctorDto) {
-        if(doctorDto.address().cep().length() < 8){
-            throw new IllegalArgumentException("CEP inválido");
-        }
         service.saveDoctor(new Doctor(doctorDto));
     }
 

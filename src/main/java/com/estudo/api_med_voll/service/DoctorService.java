@@ -15,6 +15,11 @@ public class DoctorService {
 
 
     public void saveDoctor(Doctor doctor) {
+        try {
+            repository.save(doctor);
+        } catch (Exception e) {
+            throw new RuntimeException("Erro ao salvar médico" + e.getCause());
+        }
         repository.save(doctor);
     }
 
