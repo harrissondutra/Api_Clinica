@@ -20,7 +20,7 @@ public class DoctorController {
 
     @PostMapping("/createDoctor")
     @Transactional
-    public void createDoctor(@RequestBody DoctorDto doctorDto) {
+    public void createDoctor(@RequestBody @Valid DoctorDto doctorDto) {
         service.saveDoctor(new Doctor(doctorDto));
     }
 
