@@ -27,7 +27,7 @@ public class SwaggerConfig {
                 .info(new Info()
                         .title("API Clínica Médica Voll")
                         .version("v1")
-                        .description("Documentação da API Clínica Médica")
+                        .description("Documentação da API Clínica Médica\n\nURL Base: https://apiclinica-production-5261.up.railway.app")
                         .termsOfService("http://swagger.io/terms/")
                         .license(new License().name("Apache 2.0").url("http://springdoc.org")));
     }
