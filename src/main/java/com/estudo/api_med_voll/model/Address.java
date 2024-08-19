@@ -1,6 +1,6 @@
 package com.estudo.api_med_voll.model;
 
-import com.estudo.api_med_voll.record.AddressDto;
+import com.estudo.api_med_voll.record.AddressData;
 import jakarta.persistence.Embeddable;
 import lombok.*;
 
@@ -20,7 +20,7 @@ public class Address {
     private String number;
     private String complement;
 
-    public Address(AddressDto address) {
+    public Address(AddressData address) {
         if (address != null) {
             this.street = address.street();
             this.neighborhood = address.neighborhood();
@@ -30,5 +30,15 @@ public class Address {
             this.number = address.number();
             this.complement = address.complement();
         }
+    }
+
+    public void updateAddress(AddressData addressData) {
+        if (addressData.street() != null) this.street = addressData.street();
+        if (addressData.neighborhood() != null) this.neighborhood = addressData.neighborhood();
+        if (addressData.cep() != null) this.cep = addressData.cep();
+        if (addressData.city() != null) this.city = addressData.city();
+        if (addressData.uf() != null) this.uf = addressData.uf();
+        if (addressData.number() != null) this.number = addressData.number();
+        if (addressData.complement() != null) this.complement = addressData.complement();
     }
 }

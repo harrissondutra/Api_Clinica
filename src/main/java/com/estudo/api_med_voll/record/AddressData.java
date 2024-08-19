@@ -3,7 +3,7 @@ package com.estudo.api_med_voll.record;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 
-public record AddressDto(
+public record AddressData(
         @NotBlank
         String street,
         @NotBlank

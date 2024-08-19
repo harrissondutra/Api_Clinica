@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
-public record DoctorDto(
+public record DoctorData(
         @NotBlank
         String name,
         @NotBlank
@@ -23,6 +23,6 @@ public record DoctorDto(
 
         @NotNull
         @Valid
-        AddressDto address
+        AddressData address
 ) {
 }
