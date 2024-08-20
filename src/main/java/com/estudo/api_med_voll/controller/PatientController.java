@@ -18,7 +18,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-@Tag(name = "Gerenciar Pacientes", description = "Operações relacionadas a médicos")
+@Tag(name = "Gerenciar Pacientes", description = "Operações relacionadas a pacientes")
 @RestController
 @RequestMapping("/patient")
 public class PatientController {
