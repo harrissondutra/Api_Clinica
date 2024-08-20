@@ -1,7 +1,7 @@
 package com.estudo.api_med_voll.record;
 
 import com.estudo.api_med_voll.enumerated.Specialty;
-import com.estudo.api_med_voll.model.Doctor;
+import com.estudo.api_med_voll.domain.doctor.Doctor;
 
 public record ListDataDoctor(
         Long id,

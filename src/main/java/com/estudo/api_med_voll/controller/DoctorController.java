@@ -1,7 +1,8 @@
 package com.estudo.api_med_voll.controller;
 
-import com.estudo.api_med_voll.model.Doctor;
+import com.estudo.api_med_voll.domain.doctor.Doctor;
 import com.estudo.api_med_voll.record.DoctorData;
+import com.estudo.api_med_voll.record.DoctorDataDetails;
 import com.estudo.api_med_voll.record.DoctorUpdateData;
 import com.estudo.api_med_voll.record.ListDataDoctor;
 import com.estudo.api_med_voll.service.DoctorService;
@@ -15,8 +16,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @Tag(name = "Gerenciar Médicos", description = "Operações relacionadas a médicos")
 @RestController
@@ -26,11 +26,14 @@ public class DoctorController {
     @Autowired
     private DoctorService service;
 
-    @Operation(summary = "Criar um novo médico", description = "Enviando um DoctorDto, um novo médico será criado")
+    @Operation(summary = "Criar um novo médico", description = "Enviando um DoctorDataDetails, um novo médico será criado")
     @PostMapping("/createDoctor")
     @Transactional
-    public void createDoctor(@RequestBody @Valid DoctorData doctorData) {
-        service.saveDoctor(new Doctor(doctorData));
+    public ResponseEntity<DoctorDataDetails> createDoctor(@RequestBody @Valid DoctorData doctorData, UriComponentsBuilder uriBuilder) {
+        var doctor = new Doctor(doctorData);
+        service.saveDoctor(doctor);
+        var uri = uriBuilder.path("/doctor/{id}").buildAndExpand(doctor.getId()).toUri();
+        return ResponseEntity.created(uri).body(new DoctorDataDetails(doctor));
     }
 
     @Operation(summary = "Listar todos os médicos", description = "Listar todos os médicos cadastrados")
@@ -40,24 +43,27 @@ public class DoctorController {
     }
 
     @Operation(summary = "Buscar médico por ID", description = "Buscar médico por ID")
-    @GetMapping("/getById")
-    public ResponseEntity<Doctor> getById(@RequestParam(name = "id") Long id) {
-        return ResponseEntity.ok(service.getById(id));
+    @GetMapping("/{id}")
+    public ResponseEntity<DoctorDataDetails> getById(@PathVariable Long id) {
+        var doctor = service.getById(id);
+        return ResponseEntity.ok((new DoctorDataDetails(doctor)));
     }
 
     @Operation(summary = "Atualizar médico", description = "Atualizar médico")
     @PutMapping("/updateDoctor")
     @Transactional
-    public void updateDoctor(@RequestBody @Valid DoctorUpdateData doctorData) {
+    public ResponseEntity<DoctorDataDetails> updateDoctor(@RequestBody @Valid DoctorUpdateData doctorData) {
         var doctor = service.getById(doctorData.id());
         doctor.updateDoctor(doctorData);
+        return ResponseEntity.ok(new DoctorDataDetails(doctor));
     }
 
     @Operation(summary = "Deletar médico", description = "Deletar médico")
     @DeleteMapping("/deleteDoctor/{id}")
     @Transactional
-    public void deleteDoctor(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteDoctor(@PathVariable Long id) {
         var doctor = service.getById(id);
         service.deleteDoctor(doctor);
+        return ResponseEntity.noContent().build();
     }
 }

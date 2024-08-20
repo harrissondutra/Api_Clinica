@@ -1,14 +1,13 @@
 package com.estudo.api_med_voll.service;
 
-import com.estudo.api_med_voll.model.Doctor;
+import com.estudo.api_med_voll.domain.doctor.Doctor;
 import com.estudo.api_med_voll.record.ListDataDoctor;
 import com.estudo.api_med_voll.repository.DoctorRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class DoctorService {
@@ -31,7 +30,7 @@ public class DoctorService {
     }
 
     public Doctor getById(Long id) {
-        return repository.findById(id).orElseThrow(() -> new RuntimeException("Médico não encontrado"));
+        return repository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 
     public void deleteDoctor(Doctor doctor) {

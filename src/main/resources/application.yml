@@ -31,3 +31,6 @@ spring:
     swagger-ui:
       enabled: true
       path: /swagger-ui.html
+server:
+  error:
+    include-stacktrace: never
