@@ -1,4 +1,4 @@
-# Api Clínica Médica
+# <img align="center" alt="Java" height="80" width="80" src="https://img.freepik.com/free-vector/hospital-logo-design-vector-medical-cross_53876-136743.jpg?t=st=1724201082~exp=1724204682~hmac=dcd04b2d3484dbbf656169420be19d6efd21080fbf82bfa395900961e2d7ef05&w=740"> Api Clínica Médica
 Api de estudo simulando um sistema de uma clínica médica
 <br />
 
