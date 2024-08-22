@@ -11,9 +11,10 @@ public record PatientDataDetails(
         String email,
         String cpf,
         String phone,
-        Address address
+        Address address,
+        Boolean active
 ) {
     public PatientDataDetails(Patient patient){
-        this(patient.getId(), patient.getName(), patient.getEmail(), patient.getCpf(), patient.getPhone(), patient.getAddress());
+        this(patient.getId(), patient.getName(), patient.getEmail(), patient.getCpf(), patient.getPhone(), patient.getAddress(), patient.getActive());
     }
 }

@@ -66,4 +66,13 @@ public class PatientController {
         service.deletePatient(patient);
         return ResponseEntity.noContent().build();
     }
+
+    @Operation(summary = "Ativar/Desativar paciente", description = "Ativar/Desativar paciente")
+    @PutMapping("/setActive/{id}")
+    @Transactional
+    public ResponseEntity<PatientDataDetails> setActive(@PathVariable Long id) {
+        var patient = service.getById(id);
+        patient.setActive(!patient.getActive());
+        return ResponseEntity.ok(new PatientDataDetails(patient));
+    }
 }

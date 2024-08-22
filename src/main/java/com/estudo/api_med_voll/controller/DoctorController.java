@@ -1,10 +1,7 @@
 package com.estudo.api_med_voll.controller;
 
 import com.estudo.api_med_voll.domain.doctor.Doctor;
-import com.estudo.api_med_voll.record.DoctorData;
-import com.estudo.api_med_voll.record.DoctorDataDetails;
-import com.estudo.api_med_voll.record.DoctorUpdateData;
-import com.estudo.api_med_voll.record.ListDataDoctor;
+import com.estudo.api_med_voll.record.*;
 import com.estudo.api_med_voll.service.DoctorService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -65,5 +62,14 @@ public class DoctorController {
         var doctor = service.getById(id);
         service.deleteDoctor(doctor);
         return ResponseEntity.noContent().build();
+    }
+
+    @Operation(summary = "Ativar/Desativar médico", description = "Ativar/Desativar médico")
+    @PutMapping("/setActive/{id}")
+    @Transactional
+    public ResponseEntity<DoctorDataDetails> setActive(@PathVariable Long id) {
+        var doctor = service.getById(id);
+        doctor.setActive(!doctor.getActive());
+        return ResponseEntity.ok(new DoctorDataDetails(doctor));
     }
 }
