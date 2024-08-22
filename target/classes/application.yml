@@ -24,13 +24,19 @@ spring:
       mode: always
       continue-on-error: true
       platform: postgres
-  springdoc:
-    api-docs:
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+    groups:
       enabled: true
-      path: /v3/api-docs
-    swagger-ui:
-      enabled: true
-      path: /swagger-ui.html
+    resolve-schema-properties: true
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+
+
+
 server:
   error:
     include-stacktrace: never

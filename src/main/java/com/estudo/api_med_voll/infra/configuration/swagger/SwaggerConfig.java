@@ -31,8 +31,16 @@ public class SwaggerConfig {
                         .termsOfService("http://swagger.io/terms/")
                         .license(new License().name("Apache 2.0").url("http://springdoc.org")));
     }
-
     @Bean
+    public GroupedOpenApi api() {
+        return GroupedOpenApi.builder()
+                .group("api")
+                .pathsToMatch("/patient/**" , "/doctor/**")
+                .packagesToScan("com.estudo.api_med_voll.controller")
+                .build();
+    }
+
+   /* @Bean
     public GroupedOpenApi api(RequestMappingHandlerMapping handlerMapping) {
         return GroupedOpenApi.builder()
                 .group("api")
@@ -69,7 +77,7 @@ public class SwaggerConfig {
 
     private boolean hasOperationAnnotation(Operation operation) {
         return operation.getExtensions() != null && operation.getExtensions().containsKey("x-operation");
-    }
+    }*/
 }
 
 
